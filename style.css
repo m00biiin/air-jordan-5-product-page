@@ -1,0 +1,291 @@
+@font-face {
+    font-family: montserrat;
+    src: url(fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: montserrat-bold;
+    src: url(fonts/Montserrat-Bold.ttf);
+}
+
+:root{
+    --black : #1D242B;
+    --blue : #0076c0d7;
+    --white : #FAFAFA;
+    --lightBlue : #C7EEFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: montserrat;
+    color: var(--black);  
+    font-size: 16px;  
+}
+
+button{
+    font-family: montserrat;
+    color: var(--black);
+
+    cursor: pointer;
+}
+
+section{
+    max-width: 1000px;
+
+    margin: 40px auto;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    box-shadow: 0px 8px 24px #32364312;
+    border: solid 1px #44444433;
+    border-radius: 40px;
+}
+
+section > div{
+    flex: 1;
+}
+
+section .imageSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+section .imageSection .mainImage{
+    width: 100%;
+    aspect-ratio: 1/1;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 20px;
+}
+
+section .imageSection .mainImage img{
+    width: 100%;
+}
+
+section .imageSection .gallery{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+}
+
+section .imageSection .gallery .images{ 
+    width: calc((100% - 60px)/4);
+    aspect-ratio: 1/1;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+}
+
+    section .imageSection .gallery .active{
+        border: 2px solid var(--blue);
+        position: relative;
+    }
+
+    section .imageSection .gallery .active::after{
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.5;
+        background-color: var(--white);
+        pointer-events: none;
+    }
+
+section .imageSection .gallery .images img{
+    width: 100%;
+
+    transition: .3s;
+    cursor: pointer;
+}
+
+section .imageSection .gallery .images img:hover{
+    filter: brightness(.7);
+}
+
+section .infoSection{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section .infoSection .title p{
+    font-size: 0.8em;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    color: var(--blue);
+
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+section .infoSection .title h1{
+    font-family: montserrat-bold;
+    font-size: 1.8em;
+}
+
+section .infoSection .description p{
+    font-size: 0.8em;
+    word-spacing: 2px;
+    line-height: 1.7;
+}
+
+section .infoSection .price{
+    font-family: montserrat;
+    font-weight: 600;
+    
+    margin-left: 10px;
+}
+
+section .infoSection .price div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+section .infoSection .price .offer{
+    color: var(--blue);
+    background-color: var(--lightBlue);
+
+    border-radius: 5px;
+
+    padding: 0 5px;
+
+    font-size: 0.8em;
+}
+
+section .infoSection .price p{
+    font-family: montserrat;
+    font-size: 0.8em;
+
+    color: #3c3f41;
+
+    margin-top: 5px;
+}
+
+section .infoSection .buy{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+
+    padding: 20px;
+}
+
+section .infoSection .buy>button{
+    color: var(--white);
+    background-color: var(--black);
+
+    border: 0;
+    border-radius: 10px;
+
+    grid-column: 2/-1;
+
+}
+
+section .infoSection .buy .amount{
+    display: flex;
+    align-items: center;
+
+    background-color: var(--white);
+
+    grid-column: 1/2;
+
+    border: 1px solid var(--lightBlue);
+    border-radius: 10px;
+
+    padding: 5px 10px;
+
+    transition: .3s ease border-color;
+}
+
+section .infoSection .buy .amount:hover{
+    border-color: var(--blue);
+}
+
+section .infoSection .buy .amount button{
+    background-color: transparent;
+    color: var(--blue);
+
+    border: 0px;
+
+    padding: 5px;
+
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+section .infoSection .buy .amount input{
+    background-color: transparent;
+    color: var(--blue);
+
+    text-align: center;
+    font-size: 1.3em;
+
+    width: 100%;
+    flex: 1;
+    min-width: 0;
+
+    border: 0px;
+}
+
+
+section .infoSection .buy .amount input::-webkit-inner-spin-button, section .infoSection .buy .amount input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+section .infoSection .buy .amount input:focus{
+    outline: none;
+}
+
+
+
+
+
+@media screen and (max-width:800px) {
+    section{
+        max-width: 400px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .infoSection .description{
+        display: none;
+    }
+}   
+
+@media screen and (max-width:320px) {
+    section .infoSection .buy {
+        display: flex;
+        flex-direction: column;
+    }
+
+    section .infoSection .buy>button{
+        padding: 20px;
+    }
+}
